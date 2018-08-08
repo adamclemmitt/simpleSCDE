@@ -22,7 +22,7 @@ run_SCDE <- function(df, labels, file.name, ncores = 1, min_genes_detected = 100
   # in R
   require(devtools)
   install_version("flexmix", version = "2.3-13", repos = "http://cran.us.r-project.org")
-  require(devtools)
+  require(devtools)waww
   devtools::install_github("hms-dbmi/scde", build_vignettes = FALSE)
 
   # factor determining cell types
