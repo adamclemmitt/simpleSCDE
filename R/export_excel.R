@@ -2,10 +2,10 @@
 #'
 #'@param data Content to export to excel file
 #'@param excel_file_name Name od excel file that is the destination for \code{data}
-#'@param colnames Boolean indicating whether column names should be written
-#'@param rownames Boolean indicating whther row names should be written
-#'@param name_sheet String indicating what the name of the sheet containing the newly imported data should be
-#'@param add_to_file Boolean indicating whether data should be added as a new excel sheet to a current excel file or if data should replace all existing excel sheets
+#'@param colnames Boolean indicating whether column names should be written (default: TRUE)
+#'@param rownames Boolean indicating whther row names should be written (default: TRUE)
+#'@param name_sheet String indicating what is to be the name of the sheet containing the newly imported data (default: "Sheet1")
+#'@param add_to_file Boolean indicating whether data should be added as a new excel sheet to a current excel file or if data should replace all existing excel sheets (default: FALSE)
 #'
 #'@examples
 #'data(Fincher_lateral_muscle)

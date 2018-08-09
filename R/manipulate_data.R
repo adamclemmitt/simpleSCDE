@@ -1,16 +1,15 @@
 #' Select rows from a data frame using a character vector or a numeric vector
 #'
-#' @param rowchars A character vector of row names
-#' @param rownumbs A vector containing the row numbers of the rows to be chosen
 #' @param df A data frame
-#' @param complete_names Boolean determining if the entered strings are exact row names (rather than fragments of row names)
-#' @param df_order Boolean that determines if the rows selected are returned in the order they appear in \code{df} (rather
-#' than the order they appear in \code{rowchars})
-#' @param print.rownames Boolean determining if selected row names should be printed upon completion
-#' @param print.rownumbs Boolean determining if selected row numbers should be printed upon completion
+#' @param rowchars A character vector of row names (default: c())
+#' @param rownumbs A vector containing the row numbers of the rows to be chosen (default: c())
+#' @param complete_names Boolean determining if the entered strings are exact row names (rather than fragments of row names) (default: TRUE)
+#' @param df_order Boolean that determines if the rows selected are returned in the order they appear in \code{df} (rather than the order they appear in \code{rowchars}) (default: TRUE)
+#' @param print.rownames Boolean determining if selected row names should be printed upon completion (default: FALSE)
+#' @param print.rownumbs Boolean determining if selected row numbers should be printed upon completion (default: FALSE)
 #' @return The rows from \code{df} whose names match the character vector \code{rowchars}
 #' @examples
-#' rowselect(df = planaria_cells, rowchars = c('dd_Smed_v4_12', 'dd_Smed_v4_22'), complete_names = FALSE, print.rownumbs = TRUE)
+#' rowselect(df = Fincher, rowchars = c("dd_Smed_v4_12", "dd_Smed_v4_22"), complete_names = FALSE, print.rownumbs = TRUE)
 rowselect <- function(df, rowchars = c(), rownumbs = c(), complete_names = TRUE, df_order = TRUE, print.rownames = FALSE, print.rownumbs = FALSE) {
   output <- c()
   complete_rownames <- c()
@@ -113,18 +112,15 @@ rowselect <- function(df, rowchars = c(), rownumbs = c(), complete_names = TRUE,
 #' Select columns from a data frame using a character vector or numeric vector
 #'
 #' @param df A data frame
-#' @param colchars A character vector of column names
-#' @param complete_names Boolean determining if the entered strings are exact column names (rather than fragments of
-#' column names)
-#' @param df_order Boolean that determines if the columns selected are returned in the order they appear in \code{df} (rather
-#' than the order they appear in \code{colchars})
-#' @param print.colnames Boolean determining if selected column names should be printed upon completion
-#' @param print.colnumbs Boolean determining if selected column numbers should be printed upon completion
-#' @return A data frame consisting of the columns from \code{df} whose names match the character vector \code{colchars}
-#' in the order that the appear in the column names of \code{df}
+#' @param colchars A character vector of column names (default: c())
+#' @param colnumbs A numeric vector of column numbers (default: c())
+#' @param complete_names Boolean determining if the entered strings are exact column names (rather than fragments of column names) (default: TRUE)
+#' @param df_order Boolean that determines if the columns selected are returned in the order they appear in \code{df} (rather than the order they appear in \code{colchars}) (default: TRUE)
+#' @param print.colnames Boolean determining if selected column names should be printed upon completion (default: FALSE)
+#' @param print.colnumbs Boolean determining if selected column numbers should be printed upon completion (default: FALSE)
+#' @return A data frame consisting of the columns from \code{df} whose names match the character vector \code{colchars} in the order that the appear in the column names of \code{df}
 #' @examples
-#' colselect(df = dogs, colchars = c('Pitbu', 'Rottwei'), complete_names = FALSE, df_order = FALSE, print.colnumbs = TRUE)
-#' colselect(df = primaryColors, colnumbs = c(1, 5, 39, 45), complete_names = TRUE, print.colnames = TRUE, print.colnumbs = TRUE)
+#' colselect(df = Fincher, colchars = c("dd_Smed_v4_12", "dd_Smed_v4_22"), complete_names = FALSE, df_order = FALSE, print.colnumbs = TRUE)
 colselect <- function(df, colchars = c(), colnumbs = c(), complete_names = TRUE, df_order = TRUE, print.colnames = FALSE, print.colnumbs = FALSE) {
   output <- c()
   complete_colnames <- c()
@@ -230,7 +226,7 @@ colselect <- function(df, colchars = c(), colnumbs = c(), complete_names = TRUE,
 #' @param df A data frame
 #' @return The data frame \code{df} excluding all duplicated rows
 #' @examples
-#' delete_duplicate_row(df = planaria_cells)
+#' delete_duplicate_row(df = Fincher)
 delete_duplicate_row <- function(df) {
   if (is.null(df)) {
     stop("Argument df is null. Assign df to a valid data frame.")
@@ -250,7 +246,7 @@ delete_duplicate_row <- function(df) {
 #' @param df A data frame
 #' @return The data frame \code{df} excluding all duplicated columns
 #' @examples
-#' delete_duplicate_col(df = planaria_cells)
+#' delete_duplicate_col(df = Fincher)
 delete_duplicate_col <- function(df) {
   if (is.null(df)) {
     stop("Argument df is null. Assign df to a valid data frame.")
@@ -260,10 +256,8 @@ delete_duplicate_col <- function(df) {
   for (i in 1:length(colnames(df))) {
     if (!duplicated(colnames(df))[i]) {
       is_unique <- append(is_unique, i)
-      print(i)
     }
   }
-  print(is_unique)
   output <- df[ , ..is_unique]
   return(output)
 }

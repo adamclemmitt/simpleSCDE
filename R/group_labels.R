@@ -2,14 +2,13 @@
 #'
 #' @param df A data frame
 #' @param rowname The name of the gene(row) to be measured for hits in provided cells
-#' @param x The minimum number of hits required to label a cell positive for the expression of a particular gene
-#' @param x.limit The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell
-#' @param posname The string to label cells that are determined to be positive
-#' @param negname The string to label cells that are determined to be negative
-#' @return A named character vector that contains \code{posname} and \code{negname}, and all cells that do not qualify as positive
-#' or negative are omitted
+#' @param x The minimum number of hits required to label a cell positive for the expression of a particular gene (default: 100)
+#' @param x.limit The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell (default: 0)
+#' @param posname The string to label cells that are determined to be positive (default: "pos")
+#' @param negname The string to label cells that are determined to be negative (default: "neg")
+#' @return A named character vector that contains \code{posname} and \code{negname}, and all cells that do not qualify as positive or negative are omitted
 #' @examples
-#' pos_neg.label(df = planaria_cells, rowname = 'dd_Smed_v4_12111_0_1', x = 100, x.limit = 10, posname = 'slit_pos', negname = 'slit_neg')
+#' pos_neg.label(df = Fincher_muscle, rowname = "dd_Smed_v4_12111_0_1", x = 100, x.limit = 10, posname = "slit_pos", negname = "slit_neg")
 pos_neg.label <- function(df, rowname, x = 100, x.limit = 0, posname = "pos", negname = "neg") {
   # Make sure inputs are valid
   if (is.null(df)) {
@@ -58,17 +57,15 @@ pos_neg.label <- function(df, rowname, x = 100, x.limit = 0, posname = "pos", ne
 #' @param df A data frame
 #' @param rowname.x The name of a gene(row) to be measured for hits in provided cells
 #' @param rowname.y The name of a gene(row) to be measured for hits in provided cells
-#' @param x The minimum number of hits required to label a cell positive for the expression of a particular gene
-#' @param y The minimum number of hits required to label a cell positive for the expression of a particular gene
-#' @param x.limit The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell
-#' @param y.limit The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell
-#' @param posname.x The string to label cells that are determined to be positive for \code{rowname.x}
-#' @param posname.y The string to label cells that are determined to be positive for \code{rowname.y}
-#' @return A named character vector that contains \code{posname.x} and \code{posname.y}, and all cells that do not qualify as
-#' positive or negative are omitted
+#' @param x The minimum number of hits required to label a cell positive for the expression of a particular gene (default: 100)
+#' @param y The minimum number of hits required to label a cell positive for the expression of a particular gene (defualt: 100)
+#' @param x.limit The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell (default: 0)
+#' @param y.limit The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell (default: 0)
+#' @param posname.x The string to label cells that are determined to be positive for \code{rowname.x} (default: "pos_x")
+#' @param posname.y The string to label cells that are determined to be positive for \code{rowname.y} (default: "pos_y")
+#' @return A named character vector that contains \code{posname.x} and \code{posname.y}, and all cells that do not qualify as positive or negative are omitted
 #' @examples
-#' pos_neg.label(df = planaria_cells, rowname.x = 'dd_Smed_v4_12111_0_1', rowname.y = 'dd_Smed_22585_0_1', x = 100,
-#' y = 150 x.limit = 10, y.limit = 20, posname.x = 'slit_pos', posname.y = 'zic_pos')
+#' pos_neg.label(df = Fincher, rowname.x = "dd_Smed_v4_12111_0_1", rowname.y = "dd_Smed_22585_0_1", x = 100, y = 150 x.limit = 10, y.limit = 20, posname.x = "slit_pos", posname.y = "zic_pos")
 pos_pos.label <- function(df, rowname.x, rowname.y, x = 100, y = 100, x.limit = 0, y.limit = 0, posname.x = "pos_x", posname.y = "pos_y") {
   # Make sure inputs are valid
   if (is.null(df)) {
@@ -121,16 +118,15 @@ pos_pos.label <- function(df, rowname.x, rowname.y, x = 100, y = 100, x.limit = 
 #' @param df A data frame
 #' @param rowname.x1 The name of a gene(row) to be measured for hits in provided cells
 #' @param rowname.x2 The name of a gene(row) to be measured for hits in provided cells
-#' @param x1 The minimum number of hits required to label a cell positive for the expression of a particular gene
-#' @param x2 The minimum number of hits required to label a cell positive for the expression of a particular gene
-#' @param x1.limit The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell
-#' @param x2.limit The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell
-#' @param posname The string to label cells that are determined to be positive
-#' @param negname The string to label cells that are determined to be negative
-#' @return A named character vector that contains \code{posname} and \code{negname}, and alls cells that don not qualify as
+#' @param x1 The minimum number of hits required to label a cell positive for the expression of a particular gene (default: 100)
+#' @param x2 The minimum number of hits required to label a cell positive for the expression of a particular gene (default: 100)
+#' @param x1.limit The maximum number of hits of the gene defined by \code{rowname.x1} that is allowed to be present in a negative cell (default: 0)
+#' @param x2.limit The maximum number of hits of the gene defined by \code{rowname.x2} that is allowed to be present in a negative cell (default: 0)
+#' @param posname The string to label cells that are determined to be positive (default: "pos")
+#' @param negname The string to label cells that are determined to be negative (default: "neg")
+#' @return A named character vector that contains \code{posname} and \code{negname}, and alls cells that do not qualify as either are omitted
 #' @examples
-#' pos_neg.label(df = planaria_cells, rowname = 'dd_Smed_v4_12111_0_1', x = 100, x.limit = 10,
-#' posname = 'slit_pos', negname = 'slit_neg')
+#' pos_neg.label(df = Fincher, rowname = "dd_Smed_v4_12111_0_1", x1 = 110, x2 = 90, x1.limit = 10, x2.limit = 10, posname = "slit_pos", negname = "slit_neg")
 pospos_neg.label <- function(df, rowname.x1, rowname.x2, x1 = 100, x2 = 100, x1.limit = 0, x2.limit = 0, posname = "pos", negname = "neg") {
   # Make sure inputs are valid
   if (is.null(df)) {
@@ -185,19 +181,21 @@ pospos_neg.label <- function(df, rowname.x1, rowname.x2, x1 = 100, x2 = 100, x1.
 #' @param rowname.x2 The name of a gene(row) to be measured for hits in provided cells
 #' @param rowname.y1 The name of a gene(row) to be measured for hits in provided cells
 #' @param rowname.y2 The name of a gene(row) to be measured for hits in provided cells
-#' @param x1 The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.x1})
-#' @param x2 The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.x2})
-#' @param y1 The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.y1})
-#' @param y2 The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.y2})
-#' @param posname.x The string to label cells that are determined to be positive for both \code(rowname.x1) and \code(rowname.x2)
-#' @param posname.y The string to label cells that are determined to be positive for both \code(rowname.y1) and \code(rowname.y2)
+#' @param x1 The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.x1}) (default: 100)
+#' @param x2 The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.x2}) (defualt: 100)
+#' @param y1 The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.y1}) (default: 100)
+#' @param y2 The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.y2}) (defualt: 100)
+#' @param x1.limit The maximum number of hits of the gene defined by \code{rowname.x1} that is allowed to be present in a y-positive cell (default: 0)
+#' @param x2.limit The maximum number of hits of the gene defined by \code{rowname.x2} that is allowed to be present in a y-positive cell (default: 0)
+#' @param y1.limit The maximum number of hits of the gene defined by \code{rowname.y1} that is allowed to be present in a x-positive cell (default: 0)
+#' @param y2.limit The maximum number of hits of the gene defined by \code{rowname.y2} that is allowed to be present in a x-positive cell (default: 0)
+#' @param posname.x The string to label cells that are determined to be positive for both \code(rowname.x1) and \code(rowname.x2) (default: "pos_x")
+#' @param posname.y The string to label cells that are determined to be positive for both \code(rowname.y1) and \code(rowname.y2) (default: "pos_y")
 #' @return A named character vector that contains \code{posname.x}, \code{posname.y}, or 'NA' labels for each cell
 #' @examples
-#' pospos_pospos.label(df = planaria_cells, x = 100, rowname.x1 = 'dd_Smed_v4_12111_0_1', rowname.x2 = 'dd_Smed_v4_23400_0_2',
-#' rowname.y1 = 'dd_Smed_v4_840_0_1', rowname.y2 = 'dd_Smed_v4_702_0_1', x1 = 10, x2 = 5, y1 = 12, y2 = 20,
-#' posname.x = 'slit_23400.pos', posname.y = '840_collagen.pos')
-pospos_pospos.label <- function(df, rowname.x1, rowname.x2, rowname.y1, rowname.y2, x1 = 100, x2 = 100, y1 = 100, y2 = 100, x1.limit = 0, x2.limit = 0, y1.limit = 0,
-                                y2.limit = 0, posname.x = "pos_x", posname.y = "pos_y") {
+#' pospos_pospos.label(df = Fincher, x = 100, rowname.x1 = 'dd_Smed_v4_12111_0_1', rowname.x2 = 'dd_Smed_v4_23400_0_2', rowname.y1 = "dd_Smed_v4_840_0_1", rowname.y2 = "dd_Smed_v4_702_0_1", x1 = 10, x2 = 5, y1 = 12, y2 = 20, posname.x = 'slit_23400.pos', posname.y = '840_collagen.pos')
+pospos_pospos.label <- function(df, rowname.x1, rowname.x2, rowname.y1, rowname.y2, x1 = 100, x2 = 100, y1 = 100, y2 = 100,
+                                x1.limit = 0, x2.limit = 0, y1.limit = 0, y2.limit = 0, posname.x = "pos_x", posname.y = "pos_y") {
   # Make sure data frame input is valid
   if (is.null(df)) {
     stop("Assign df to a dataframe value.")
@@ -255,16 +253,15 @@ pospos_pospos.label <- function(df, rowname.x1, rowname.x2, rowname.y1, rowname.
 #' Label two groups of cells based on the contents of their names
 #'
 #' @param df A data frame
-#' @param x.start Index of \code{col.names} at which to start first group of cells (inclusive)
-#' @param x.stop Index of \code{col.names} at which to stop first group of cells (inclusive)
-#' @param y.start Index of \code{col.names} at which to start first group of cells (inclusive)
-#' @param y.stop Index of \code{col.names} at which to stop first group of cells (inclusive)
-#' @param x.name String label for first cell group (default: 'group_x')
-#' @param y.name String label for second cell group (default: 'group_y')
-#' @return A named character vector that contains \code{x.name} and \code{y.name}, and all cells that do not qualify as positive
-#' or negative are omitted
+#' @param x.start Index of \code{col.names} at which to start first group of cells
+#' @param x.stop Index of \code{col.names} at which to stop first group of cells
+#' @param y.start Index of \code{col.names} at which to start first group of cells
+#' @param y.stop Index of \code{col.names} at which to stop first group of cells
+#' @param x.name String label for first cell group (default: "group_x")
+#' @param y.name String label for second cell group (default: "group_y")
+#' @return A named character vector that contains \code{x.name} and \code{y.name}, and all cells that do not qualify as positive or negative are omitted
 #' @examples
-#' label_by_colnames(df = planaria_cells, x.start = 1, x.stop = 11, y.start = 12, y.stop = length(colnames(planaria_cells))
+#' label_by_colnames(df = Fincher, x.start = 1, x.stop = 11, y.start = 12, y.stop = length(colnames(planaria_cells))
 label_by_colnames <- function(df, x.start, x.stop, y.start, y.stop, x.name = "group_x", y.name = "group_y") {
   if (x.start < 1 || x.stop < 1 || y.start < 1 || y.stop < 1) {
     stop("x.start, x.stop, y.start, and y.stop must be equal to or greater than 1.")
