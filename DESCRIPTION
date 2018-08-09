@@ -13,16 +13,16 @@ Description: A simplified method of cell data wrangling and single-cell differen
     differential expression can be assessed.
 Encoding: UTF-8
 LazyData: true
+BugReports: https://github.com/adamnc2/simpleSCDE/issues
 License: file LICENSE
-VignetteBuilder:
-  knitr
+VignetteBuilder: knitr
+Depends: R (>= 3.5.0)
 Imports:
   data.table (>= 1.11.4),
   devtools (>= 1.13.5),
   flexmix (<= 2.3-13),
-  knitr,
+  knitr (>= 1.20)
   lattice (>= 0.20-35),
+  rmarkdown (>= 1.10)
   scde (>= 1.99.4)
 RoxygenNote: 6.0.1
-Suggests: knitr,
-    rmarkdown
