@@ -35,7 +35,7 @@ rowselect <- function(df, rowchars = c(), rownumbs = c(), complete_names = TRUE,
             }
           }
         }
-        output <- df[c(find_rownumbs), ]
+        output <- df[find_rownumbs, ]
       } else {
         # Inputted strings treated as exact column names
         for (i in 1:nrow(df)) {
@@ -78,10 +78,10 @@ rowselect <- function(df, rowchars = c(), rownumbs = c(), complete_names = TRUE,
     # Select columns based on inputted numeric vector Return columns in the order they appear in the original data frame (numerical order)
     if (df_order) {
       sorted_rownumbs <- sort(rownumbs)
-      output <- df[sorted_rownumbs]
+      output <- df[sorted_rownumbs, ]
     } else {
       # Return columns in the order they are entered/specificied in colnumbs
-      output <- df[rownumbs]
+      output <- df[rownumbs, ]
     }
   }
   # Check if user has requested to print information
@@ -147,7 +147,7 @@ colselect <- function(df, colchars = c(), colnumbs = c(), complete_names = TRUE,
             }
           }
         }
-        output <- df[find_colnumbs]
+        output <- df[, ..find_colnumbs]
       } else {
         # Inputted strings treated as exact column names
         for (i in 1:ncol(df)) {
@@ -159,10 +159,11 @@ colselect <- function(df, colchars = c(), colnumbs = c(), complete_names = TRUE,
             }
           }
         }
+        output <- df[, ..find_colnumbs]
       }
-      output <- df[find_colnumbs]
     } else {
-      # Return columns in the order they appear in inputted colchars Inputted strings treated as fragments of inputted column names
+      # Return columns in the order they appear in inputted colchars
+      # Inputted strings treated as fragments of inputted column names
       if (!complete_names) {
         for (k in 1:length(colchars)) {
           for (i in 1:ncol(df)) {
@@ -172,7 +173,7 @@ colselect <- function(df, colchars = c(), colnumbs = c(), complete_names = TRUE,
             }
           }
         }
-        output <- df[find_colnumbs]
+        output <- df[, ..find_colnumbs]
       } else {
         # Inputted strings treated as exact column names
         for (i in 1:length(colchars)) {
@@ -183,17 +184,18 @@ colselect <- function(df, colchars = c(), colnumbs = c(), complete_names = TRUE,
             }
           }
         }
+        output <- df[, ..find_colnumbs]
       }
-      output <- df[find_colnumbs]
     }
   } else {
-    # Select columns based on inputted numeric vector Return columns in the order they appear in the original data frame (numerical order)
+    # Select columns based on inputted numeric vector
+    #Return columns in the order they appear in the original data frame (numerical order)
     if (df_order) {
       sorted_colnumbs <- sort(colnumbs)
-      output <- df[sorted_colnumbs]
+      output <- df[, ..sorted_colnumbs]
     } else {
       # Return columns in the order they are entered/specificied in colnumbs
-      output <- df[colnumbs]
+      output <- df[, ..colnumbs]
     }
   }
   # Check if user has requested to print information
