@@ -10,26 +10,24 @@ colselect(df, colchars = c(), colnumbs = c(), complete_names = TRUE,
 \arguments{
 \item{df}{A data frame}
 
-\item{colchars}{A character vector of column names}
+\item{colchars}{A character vector of column names (default: c())}
 
-\item{complete_names}{Boolean determining if the entered strings are exact column names (rather than fragments of
-column names)}
+\item{colnumbs}{A numeric vector of column numbers (default: c())}
 
-\item{df_order}{Boolean that determines if the columns selected are returned in the order they appear in \code{df} (rather
-than the order they appear in \code{colchars})}
+\item{complete_names}{Boolean determining if the entered strings are exact column names (rather than fragments of column names) (default: TRUE)}
 
-\item{print.colnames}{Boolean determining if selected column names should be printed upon completion}
+\item{df_order}{Boolean that determines if the columns selected are returned in the order they appear in \code{df} (rather than the order they appear in \code{colchars}) (default: TRUE)}
 
-\item{print.colnumbs}{Boolean determining if selected column numbers should be printed upon completion}
+\item{print.colnames}{Boolean determining if selected column names should be printed upon completion (default: FALSE)}
+
+\item{print.colnumbs}{Boolean determining if selected column numbers should be printed upon completion (default: FALSE)}
 }
 \value{
-A data frame consisting of the columns from \code{df} whose names match the character vector \code{colchars}
-in the order that the appear in the column names of \code{df}
+A data frame consisting of the columns from \code{df} whose names match the character vector \code{colchars} in the order that the appear in the column names of \code{df}
 }
 \description{
 Select columns from a data frame using a character vector or numeric vector
 }
 \examples{
-colselect(df = dogs, colchars = c('Pitbu', 'Rottwei'), complete_names = FALSE, df_order = FALSE, print.colnumbs = TRUE)
-colselect(df = primaryColors, colnumbs = c(1, 5, 39, 45), complete_names = TRUE, print.colnames = TRUE, print.colnumbs = TRUE)
+colselect(df = Fincher, colchars = c("dd_Smed_v4_12", "dd_Smed_v4_22"), complete_names = FALSE, df_order = FALSE, print.colnumbs = TRUE)
 }

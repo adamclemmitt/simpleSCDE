@@ -12,21 +12,20 @@ pos_neg.label(df, rowname, x = 100, x.limit = 0, posname = "pos",
 
 \item{rowname}{The name of the gene(row) to be measured for hits in provided cells}
 
-\item{x}{The minimum number of hits required to label a cell positive for the expression of a particular gene}
+\item{x}{The minimum number of hits required to label a cell positive for the expression of a particular gene (default: 100)}
 
-\item{x.limit}{The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell}
+\item{x.limit}{The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell (default: 0)}
 
-\item{posname}{The string to label cells that are determined to be positive}
+\item{posname}{The string to label cells that are determined to be positive (default: "pos")}
 
-\item{negname}{The string to label cells that are determined to be negative}
+\item{negname}{The string to label cells that are determined to be negative (default: "neg")}
 }
 \value{
-A named character vector that contains \code{posname} and \code{negname}, and all cells that do not qualify as positive
-or negative are omitted
+A named character vector that contains \code{posname} and \code{negname}, and all cells that do not qualify as positive or negative are omitted
 }
 \description{
 Label a group of cells positive or negative for a single gene based on a user-defined number of hits
 }
 \examples{
-pos_neg.label(df = planaria_cells, rowname = 'dd_Smed_v4_12111_0_1', x = 100, x.limit = 10, posname = 'slit_pos', negname = 'slit_neg')
+pos_neg.label(df = Fincher_muscle, rowname = "dd_Smed_v4_12111_0_1", x = 100, x.limit = 10, posname = "slit_pos", negname = "slit_neg")
 }

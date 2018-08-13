@@ -4,27 +4,29 @@
 \alias{run_SCDE}
 \title{Run single-cell differential expression testing on a specified data frame of cells and genes}
 \usage{
-run_SCDE(df, labels, file.name, ncores = 1, min_genes_detected = 1000,
-  min_reads_per_gene = 5, min_cells_gene_in = 10)
+run_SCDE(df, labels, write_to_txt = FALSE, file_name = "results.txt",
+  ncores = 1, min_genes_detected = 1800, min_reads_per_gene = 10,
+  min_cells_gene_in = 5)
 }
 \arguments{
 \item{df}{A data frame}
 
 \item{labels}{A vector containing labels indicating if certain cells positively or negatively express personal genes}
 
-\item{file.name}{Full file name to use for document containing test results}
+\item{file_name}{Full file name to use for document containing test results}
 
-\item{ncores}{Number of cores to utilize}
+\item{ncores}{Number of cores to utilize (default: 1)}
 
-\item{clean.counts_min.lib.size}{Minimum number of genes detected in a cell. Cells with fewer genes will be removed (default: 1.8e3)}
-}
-\value{
-ediff
+\item{min_genes_detected}{Minimum number of genes detected in a cell. Cells with fewer genes will be removed (default: 1.8e3)}
+
+\item{min_cells_gene_in}{Minimum number of cells a gene must be seen in. Genes not seen in a sufficient number of cells will be removed (default: 5)}
+
+\item{min_read_per_gene}{Minimum number of reads per gene. Genes with fewer reads will be removed (default: 10)}
 }
 \description{
 Run single-cell differential expression testing on a specified data frame of cells and genes
 }
 \examples{
-slit.pos_neg <- pos_neg.label(df = es.mef.small, rowname = 'dd_Smed.v4_12111_0_1')
-run_SCDE(df = planaria_cells, labels = slit.pos_neg, file.name = 'slitediff.txt')
+slit_posneg <- pos_neg.label(df = es.mef.small, rowname = "dd_Smed.v4_12111_0_1")
+run_SCDE(df = Fincher, labels = slit_posneg, file_name = "slitResults.txt", min_genes_detected = 10)
 }

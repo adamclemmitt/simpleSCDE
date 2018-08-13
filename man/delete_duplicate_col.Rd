@@ -16,5 +16,5 @@ The data frame \code{df} excluding all duplicated columns
 Delete repeated columns in a data frame
 }
 \examples{
-delete_duplicate_col(df = planaria_cells)
+delete_duplicate_col(df = Fincher)
 }

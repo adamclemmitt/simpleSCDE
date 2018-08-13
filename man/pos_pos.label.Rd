@@ -14,26 +14,24 @@ pos_pos.label(df, rowname.x, rowname.y, x = 100, y = 100, x.limit = 0,
 
 \item{rowname.y}{The name of a gene(row) to be measured for hits in provided cells}
 
-\item{x}{The minimum number of hits required to label a cell positive for the expression of a particular gene}
+\item{x}{The minimum number of hits required to label a cell positive for the expression of a particular gene (default: 100)}
 
-\item{y}{The minimum number of hits required to label a cell positive for the expression of a particular gene}
+\item{y}{The minimum number of hits required to label a cell positive for the expression of a particular gene (defualt: 100)}
 
-\item{x.limit}{The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell}
+\item{x.limit}{The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell (default: 0)}
 
-\item{y.limit}{The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell}
+\item{y.limit}{The maximum number of hits of the gene defined by \code{rowname} that is allowed to be present in a negative cell (default: 0)}
 
-\item{posname.x}{The string to label cells that are determined to be positive for \code{rowname.x}}
+\item{posname.x}{The string to label cells that are determined to be positive for \code{rowname.x} (default: "pos_x")}
 
-\item{posname.y}{The string to label cells that are determined to be positive for \code{rowname.y}}
+\item{posname.y}{The string to label cells that are determined to be positive for \code{rowname.y} (default: "pos_y")}
 }
 \value{
-A named character vector that contains \code{posname.x} and \code{posname.y}, and all cells that do not qualify as
-positive or negative are omitted
+A named character vector that contains \code{posname.x} and \code{posname.y}, and all cells that do not qualify as positive or negative are omitted
 }
 \description{
 Label a group of cells positive for one of two genes based on a user-defined number of hits for each gene
 }
 \examples{
-pos_neg.label(df = planaria_cells, rowname.x = 'dd_Smed_v4_12111_0_1', rowname.y = 'dd_Smed_22585_0_1', x = 100,
-y = 150 x.limit = 10, y.limit = 20, posname.x = 'slit_pos', posname.y = 'zic_pos')
+pos_neg.label(df = Fincher, rowname.x = "dd_Smed_v4_12111_0_1", rowname.y = "dd_Smed_22585_0_1", x = 100, y = 150 x.limit = 10, y.limit = 20, posname.x = "slit_pos", posname.y = "zic_pos")
 }

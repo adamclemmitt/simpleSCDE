@@ -20,17 +20,25 @@ pospos_pospos.label(df, rowname.x1, rowname.x2, rowname.y1, rowname.y2,
 
 \item{rowname.y2}{The name of a gene(row) to be measured for hits in provided cells}
 
-\item{x1}{The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.x1})}
+\item{x1}{The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.x1}) (default: 100)}
 
-\item{x2}{The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.x2})}
+\item{x2}{The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.x2}) (defualt: 100)}
 
-\item{y1}{The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.y1})}
+\item{y1}{The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.y1}) (default: 100)}
 
-\item{y2}{The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.y2})}
+\item{y2}{The minimum number of hits required to label a cell positive for the expression of a particular gene(\code{rowname.y2}) (defualt: 100)}
 
-\item{posname.x}{The string to label cells that are determined to be positive for both \code(rowname.x1) and \code(rowname.x2)}
+\item{x1.limit}{The maximum number of hits of the gene defined by \code{rowname.x1} that is allowed to be present in a y-positive cell (default: 0)}
 
-\item{posname.y}{The string to label cells that are determined to be positive for both \code(rowname.y1) and \code(rowname.y2)}
+\item{x2.limit}{The maximum number of hits of the gene defined by \code{rowname.x2} that is allowed to be present in a y-positive cell (default: 0)}
+
+\item{y1.limit}{The maximum number of hits of the gene defined by \code{rowname.y1} that is allowed to be present in a x-positive cell (default: 0)}
+
+\item{y2.limit}{The maximum number of hits of the gene defined by \code{rowname.y2} that is allowed to be present in a x-positive cell (default: 0)}
+
+\item{posname.x}{The string to label cells that are determined to be positive for both \code(rowname.x1) and \code(rowname.x2) (default: "pos_x")}
+
+\item{posname.y}{The string to label cells that are determined to be positive for both \code(rowname.y1) and \code(rowname.y2) (default: "pos_y")}
 }
 \value{
 A named character vector that contains \code{posname.x}, \code{posname.y}, or 'NA' labels for each cell
@@ -39,7 +47,5 @@ A named character vector that contains \code{posname.x}, \code{posname.y}, or 'N
 Label a group of cells positive for one of two two-gene groupings based on a user-defined number of hits for each gene
 }
 \examples{
-pospos_pospos.label(df = planaria_cells, x = 100, rowname.x1 = 'dd_Smed_v4_12111_0_1', rowname.x2 = 'dd_Smed_v4_23400_0_2',
-rowname.y1 = 'dd_Smed_v4_840_0_1', rowname.y2 = 'dd_Smed_v4_702_0_1', x1 = 10, x2 = 5, y1 = 12, y2 = 20,
-posname.x = 'slit_23400.pos', posname.y = '840_collagen.pos')
+pospos_pospos.label(df = Fincher, x = 100, rowname.x1 = 'dd_Smed_v4_12111_0_1', rowname.x2 = 'dd_Smed_v4_23400_0_2', rowname.y1 = "dd_Smed_v4_840_0_1", rowname.y2 = "dd_Smed_v4_702_0_1", x1 = 10, x2 = 5, y1 = 12, y2 = 20, posname.x = 'slit_23400.pos', posname.y = '840_collagen.pos')
 }

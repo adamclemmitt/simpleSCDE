@@ -10,18 +10,17 @@ rowselect(df, rowchars = c(), rownumbs = c(), complete_names = TRUE,
 \arguments{
 \item{df}{A data frame}
 
-\item{rowchars}{A character vector of row names}
+\item{rowchars}{A character vector of row names (default: c())}
 
-\item{rownumbs}{A vector containing the row numbers of the rows to be chosen}
+\item{rownumbs}{A vector containing the row numbers of the rows to be chosen (default: c())}
 
-\item{complete_names}{Boolean determining if the entered strings are exact row names (rather than fragments of row names)}
+\item{complete_names}{Boolean determining if the entered strings are exact row names (rather than fragments of row names) (default: TRUE)}
 
-\item{df_order}{Boolean that determines if the rows selected are returned in the order they appear in \code{df} (rather
-than the order they appear in \code{rowchars})}
+\item{df_order}{Boolean that determines if the rows selected are returned in the order they appear in \code{df} (rather than the order they appear in \code{rowchars}) (default: TRUE)}
 
-\item{print.rownames}{Boolean determining if selected row names should be printed upon completion}
+\item{print.rownames}{Boolean determining if selected row names should be printed upon completion (default: FALSE)}
 
-\item{print.rownumbs}{Boolean determining if selected row numbers should be printed upon completion}
+\item{print.rownumbs}{Boolean determining if selected row numbers should be printed upon completion (default: FALSE)}
 }
 \value{
 The rows from \code{df} whose names match the character vector \code{rowchars}
@@ -30,5 +29,5 @@ The rows from \code{df} whose names match the character vector \code{rowchars}
 Select rows from a data frame using a character vector or a numeric vector
 }
 \examples{
-rowselect(df = planaria_cells, rowchars = c('dd_Smed_v4_12', 'dd_Smed_v4_22'), complete_names = FALSE, print.rownumbs = TRUE)
+rowselect(df = Fincher, rowchars = c("dd_Smed_v4_12", "dd_Smed_v4_22"), complete_names = FALSE, print.rownumbs = TRUE)
 }
