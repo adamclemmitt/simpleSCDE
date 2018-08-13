@@ -10,6 +10,8 @@
 #' @return The rows from \code{df} whose names match the character vector \code{rowchars}
 #' @examples
 #' rowselect(df = Fincher, rowchars = c("dd_Smed_v4_12", "dd_Smed_v4_22"), complete_names = FALSE, print.rownumbs = TRUE)
+#'
+#' @export
 rowselect <- function(df, rowchars = c(), rownumbs = c(), complete_names = TRUE, df_order = TRUE, print.rownames = FALSE, print.rownumbs = FALSE) {
   output <- c()
   complete_rownames <- c()
@@ -121,6 +123,8 @@ rowselect <- function(df, rowchars = c(), rownumbs = c(), complete_names = TRUE,
 #' @return A data frame consisting of the columns from \code{df} whose names match the character vector \code{colchars} in the order that the appear in the column names of \code{df}
 #' @examples
 #' colselect(df = Fincher, colchars = c("dd_Smed_v4_12", "dd_Smed_v4_22"), complete_names = FALSE, df_order = FALSE, print.colnumbs = TRUE)
+#'
+#' @export
 colselect <- function(df, colchars = c(), colnumbs = c(), complete_names = TRUE, df_order = TRUE, print.colnames = FALSE, print.colnumbs = FALSE) {
   output <- c()
   complete_colnames <- c()
@@ -229,6 +233,8 @@ colselect <- function(df, colchars = c(), colnumbs = c(), complete_names = TRUE,
 #' @return The data frame \code{df} excluding all duplicated rows
 #' @examples
 #' delete_duplicate_row(df = Fincher)
+#'
+#' @export
 delete_duplicate_row <- function(df) {
   if (is.null(df)) {
     stop("Argument df is null. Assign df to a valid data frame.")
@@ -249,6 +255,8 @@ delete_duplicate_row <- function(df) {
 #' @return The data frame \code{df} excluding all duplicated columns
 #' @examples
 #' delete_duplicate_col(df = Fincher)
+#'
+#' @export
 delete_duplicate_col <- function(df) {
   if (is.null(df)) {
     stop("Argument df is null. Assign df to a valid data frame.")

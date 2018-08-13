@@ -6,6 +6,8 @@
 #'
 #'@examples
 #'lat_muscle <- import_csv(file_path = "C:/Users/adamc/Desktop/planaria.xlsx", colnames = TRUE)
+#'
+#'@export
 import_csv <- function(file_path, colnames = FALSE, rownames =FALSE) {
   output <- readr::read_csv(file = file_path)
   print(output)
@@ -22,8 +24,6 @@ import_csv <- function(file_path, colnames = FALSE, rownames =FALSE) {
   }
   # Account for potential row names
   if (rownames) {
-    print(length(rownames(output))
-    print(length(output[,1]))
     rownames(output) <- output[,1]
     output <- output[,c(-1)]
   }
@@ -44,6 +44,8 @@ import_csv <- function(file_path, colnames = FALSE, rownames =FALSE) {
 #'@examples
 #'data(Fincher_lateral_muscle)
 #'export_excel(data = Fincher_lateral_muscle, file_path = "C:/Users/adamc/Desktop/planaria.xlsx", name_sheet = "LatMuscle", add_to_file = TRUE)
+#'
+#'@export
 export_excel <- function(data, file_path, colnames = TRUE, rownames = TRUE, name_sheet = "Sheet1", add_to_file = FALSE) {
   # Notify user that add_to_file can result in the deletion of current excel sheets and respond accordingly
   if (!add_to_file) {

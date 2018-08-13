@@ -9,6 +9,8 @@
 #' @return A named character vector that contains \code{posname} and \code{negname}, and all cells that do not qualify as positive or negative are omitted
 #' @examples
 #' pos_neg.label(df = Fincher_muscle, rowname = "dd_Smed_v4_12111_0_1", x = 100, x.limit = 10, posname = "slit_pos", negname = "slit_neg")
+#'
+#' @export
 pos_neg.label <- function(df, rowname, x = 100, x.limit = 0, posname = "pos", negname = "neg") {
   # Make sure inputs are valid
   if (is.null(df)) {
@@ -66,6 +68,8 @@ pos_neg.label <- function(df, rowname, x = 100, x.limit = 0, posname = "pos", ne
 #' @return A named character vector that contains \code{posname.x} and \code{posname.y}, and all cells that do not qualify as positive or negative are omitted
 #' @examples
 #' pos_neg.label(df = Fincher, rowname.x = "dd_Smed_v4_12111_0_1", rowname.y = "dd_Smed_22585_0_1", x = 100, y = 150 x.limit = 10, y.limit = 20, posname.x = "slit_pos", posname.y = "zic_pos")
+#'
+#' @export
 pos_pos.label <- function(df, rowname.x, rowname.y, x = 100, y = 100, x.limit = 0, y.limit = 0, posname.x = "pos_x", posname.y = "pos_y") {
   # Make sure inputs are valid
   if (is.null(df)) {
@@ -127,6 +131,8 @@ pos_pos.label <- function(df, rowname.x, rowname.y, x = 100, y = 100, x.limit = 
 #' @return A named character vector that contains \code{posname} and \code{negname}, and alls cells that do not qualify as either are omitted
 #' @examples
 #' pos_neg.label(df = Fincher, rowname = "dd_Smed_v4_12111_0_1", x1 = 110, x2 = 90, x1.limit = 10, x2.limit = 10, posname = "slit_pos", negname = "slit_neg")
+#'
+#' @export
 pospos_neg.label <- function(df, rowname.x1, rowname.x2, x1 = 100, x2 = 100, x1.limit = 0, x2.limit = 0, posname = "pos", negname = "neg") {
   # Make sure inputs are valid
   if (is.null(df)) {
@@ -194,6 +200,8 @@ pospos_neg.label <- function(df, rowname.x1, rowname.x2, x1 = 100, x2 = 100, x1.
 #' @return A named character vector that contains \code{posname.x}, \code{posname.y}, or 'NA' labels for each cell
 #' @examples
 #' pospos_pospos.label(df = Fincher, x = 100, rowname.x1 = 'dd_Smed_v4_12111_0_1', rowname.x2 = 'dd_Smed_v4_23400_0_2', rowname.y1 = "dd_Smed_v4_840_0_1", rowname.y2 = "dd_Smed_v4_702_0_1", x1 = 10, x2 = 5, y1 = 12, y2 = 20, posname.x = 'slit_23400.pos', posname.y = '840_collagen.pos')
+#'
+#' @export
 pospos_pospos.label <- function(df, rowname.x1, rowname.x2, rowname.y1, rowname.y2, x1 = 100, x2 = 100, y1 = 100, y2 = 100,
                                 x1.limit = 0, x2.limit = 0, y1.limit = 0, y2.limit = 0, posname.x = "pos_x", posname.y = "pos_y") {
   # Make sure data frame input is valid
@@ -262,6 +270,8 @@ pospos_pospos.label <- function(df, rowname.x1, rowname.x2, rowname.y1, rowname.
 #' @return A named character vector that contains \code{x.name} and \code{y.name}, and all cells that do not qualify as positive or negative are omitted
 #' @examples
 #' label_by_colnames(df = Fincher, x.start = 1, x.stop = 11, y.start = 12, y.stop = length(colnames(planaria_cells))
+#'
+#' @export
 label_by_colnames <- function(df, x.start, x.stop, y.start, y.stop, x.name = "group_x", y.name = "group_y") {
   if (x.start < 1 || x.stop < 1 || y.start < 1 || y.stop < 1) {
     stop("x.start, x.stop, y.start, and y.stop must be equal to or greater than 1.")

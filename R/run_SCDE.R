@@ -18,6 +18,8 @@
 #' @examples
 #' slit_posneg <- pos_neg.label(df = es.mef.small, rowname = "dd_Smed.v4_12111_0_1")
 #' run_SCDE(df = Fincher, labels = slit_posneg, file_name = "slitResults.txt", min_genes_detected = 10)
+#'
+#' @export
 run_SCDE <- function(df, labels, write_to_txt = FALSE, file_name = "results.txt", ncores = 1, min_genes_detected = 1800, min_reads_per_gene = 10, min_cells_gene_in = 5) {
   source("https://bioconductor.org/biocLite.R")
   biocLite("scde")
