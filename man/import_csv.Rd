@@ -18,4 +18,5 @@ Import data from a csv file
 }
 \examples{
 lat_muscle <- import_csv(file_path = "C:/Users/adamc/Desktop/planaria.xlsx", colnames = TRUE)
+
 }

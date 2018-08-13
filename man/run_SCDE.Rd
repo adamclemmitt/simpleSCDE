@@ -29,4 +29,5 @@ Run single-cell differential expression testing on a specified data frame of cel
 \examples{
 slit_posneg <- pos_neg.label(df = es.mef.small, rowname = "dd_Smed.v4_12111_0_1")
 run_SCDE(df = Fincher, labels = slit_posneg, file_name = "slitResults.txt", min_genes_detected = 10)
+
 }

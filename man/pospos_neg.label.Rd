@@ -34,4 +34,5 @@ Label a group of cells positive or negative for a group of two genes based on a 
 }
 \examples{
 pos_neg.label(df = Fincher, rowname = "dd_Smed_v4_12111_0_1", x1 = 110, x2 = 90, x1.limit = 10, x2.limit = 10, posname = "slit_pos", negname = "slit_neg")
+
 }

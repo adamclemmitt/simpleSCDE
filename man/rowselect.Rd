@@ -30,4 +30,5 @@ Select rows from a data frame using a character vector or a numeric vector
 }
 \examples{
 rowselect(df = Fincher, rowchars = c("dd_Smed_v4_12", "dd_Smed_v4_22"), complete_names = FALSE, print.rownumbs = TRUE)
+
 }

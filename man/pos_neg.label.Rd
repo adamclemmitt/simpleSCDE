@@ -28,4 +28,5 @@ Label a group of cells positive or negative for a single gene based on a user-de
 }
 \examples{
 pos_neg.label(df = Fincher_muscle, rowname = "dd_Smed_v4_12111_0_1", x = 100, x.limit = 10, posname = "slit_pos", negname = "slit_neg")
+
 }

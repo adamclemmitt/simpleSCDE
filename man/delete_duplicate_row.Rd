@@ -17,4 +17,5 @@ Delete repeated rows in a data frame
 }
 \examples{
 delete_duplicate_row(df = Fincher)
+
 }

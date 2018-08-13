@@ -26,4 +26,5 @@ Export data to excel file
 \examples{
 data(Fincher_lateral_muscle)
 export_excel(data = Fincher_lateral_muscle, file_path = "C:/Users/adamc/Desktop/planaria.xlsx", name_sheet = "LatMuscle", add_to_file = TRUE)
+
 }

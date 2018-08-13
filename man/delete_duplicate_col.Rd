@@ -17,4 +17,5 @@ Delete repeated columns in a data frame
 }
 \examples{
 delete_duplicate_col(df = Fincher)
+
 }

@@ -30,4 +30,5 @@ Label two groups of cells based on the contents of their names
 }
 \examples{
 label_by_colnames(df = Fincher, x.start = 1, x.stop = 11, y.start = 12, y.stop = length(colnames(planaria_cells))
+
 }

@@ -34,4 +34,5 @@ Label a group of cells positive for one of two genes based on a user-defined num
 }
 \examples{
 pos_neg.label(df = Fincher, rowname.x = "dd_Smed_v4_12111_0_1", rowname.y = "dd_Smed_22585_0_1", x = 100, y = 150 x.limit = 10, y.limit = 20, posname.x = "slit_pos", posname.y = "zic_pos")
+
 }

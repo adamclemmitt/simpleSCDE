@@ -30,4 +30,5 @@ Select columns from a data frame using a character vector or numeric vector
 }
 \examples{
 colselect(df = Fincher, colchars = c("dd_Smed_v4_12", "dd_Smed_v4_22"), complete_names = FALSE, df_order = FALSE, print.colnumbs = TRUE)
+
 }

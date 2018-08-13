@@ -48,4 +48,5 @@ Label a group of cells positive for one of two two-gene groupings based on a use
 }
 \examples{
 pospos_pospos.label(df = Fincher, x = 100, rowname.x1 = 'dd_Smed_v4_12111_0_1', rowname.x2 = 'dd_Smed_v4_23400_0_2', rowname.y1 = "dd_Smed_v4_840_0_1", rowname.y2 = "dd_Smed_v4_702_0_1", x1 = 10, x2 = 5, y1 = 12, y2 = 20, posname.x = 'slit_23400.pos', posname.y = '840_collagen.pos')
+
 }
