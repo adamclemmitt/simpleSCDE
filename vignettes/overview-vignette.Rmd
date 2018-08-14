@@ -101,12 +101,27 @@ Now that your data frame and labels have been prepared, you are ready to run the
 * `write_to_txt` (boolean determining if results should be written to an external text file)
 * `file_name` (name of file to write results to if `write_to_txt = TRUE`)
 * `ncores` (number of cores to use during test)
-* `min_cells_gene_in` (minimum number of genes detected in a cell)
+* `min_genes_detected` (minimum number of genes detected in a cell)
 * `min_cells_gene_in` (minimum number of cells a gene must be seen in)
 * `min_reads_per_gene` (minimum number of reads per gene)
 
-When using `run_SCDE`, errors may arise involving the final three parameters mentioned above. These parameters control what cells and genes are filtered out of your data, and it is eay to set these values too high, eliminating all of cells or genes. 
+When using `run_SCDE`, errors may arise involving the final three parameters mentioned above. These parameters control what cells and genes are filtered out of your data, and it is eay to set these values too high, eliminating all of cells or genes.
 
+The following code will run SCDE Testing on our trunk muscle cells:
+
+```r
+# results of our test will be saved to slit_results
+slit_results <- run_SCDE(df = trunk_cells, labels = slit_labels, write_to_txt = TRUE, file_name = "slitTestResults.txt", min_genes_detected = 5, min_cells_gene_in = 1, min_reads_per_gene = 1)
+```
+
+The code above will save test results to `slit_results` and also create a text file("slitTestResults.txt", in this case) containing the same test results. Note that this portion of the process can take a very long time if your data frame is large or if your computer is slow.
+
+Exporting Data
+--------------
+
+
+Issues or Questions?
+--------------------
 
 
 
