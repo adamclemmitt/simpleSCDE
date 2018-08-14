@@ -1,7 +1,7 @@
 ---
 title: "overview-vignette"
 author: "Adam Clemmitt"
-date: "2018-08-13"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{"overview-vignette"}
@@ -9,26 +9,104 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+Simplified Single Cell Differential Expression Analysis
+=======================================================
+
+This vignette will show you how to import, prepare, and export data for SCDE analysis with the `simpleSCDE` package.
+
+Loading the Package
+---------------------
+
+In order to begin working with the `simpleSCDE` package, the package must be uploaded to your R session. The following code will upload the package directly from github:
+
+```r
+# load devtools and use it to pull simpleSCDE from github
+library(devtools)
+devtools::install_github("adamnc2/simpleSCDE", bulid_vignettes = FALSE)
 ```
 
-## R Markdown
+Importing Data
+--------------
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Mining data can be particularly difficult due to the variety of data types and sizes available for potential use. In order to accomodate as many scenarios as possible, 'simpleSCDE' includes methods for reading CSV, text, and excel files. Below are examples of how to use all three functions:
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```r
+# import_csv()
+# import_txt()
+# import_excel()
 ```
 
-## Including Plots
+For the purposes of this vignette, we are going to use data that has been attached to thr 'simpleSCDE' package itself. While there are a few different example datasets included in the 'simpleSCDE' package, we are going to use a list of muscle cells in planaria originally created by [*Fincher et al.*](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111764):
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```r
+data("Fincher_muscle")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Manipulating Data Frames
+-----------------------
+
+Prior to SCDE testing, any data you may be interested in using must be properly wrangled and isolated. Flexible functions for column selection and row selection are included in the 'simpleSCDE' package. Below, we will use the column selection function to isolate trunk muscle cells from our current data frame of planarian muscle cells:
+
+```r
+# defining a new variable trunk_cells to store the data frame of trunk muscle cells selected from all muscle cells
+trunk_cells <- colselect(df = Fincher_muscle, colchars = "Cells_Trunk", complete_names = FALSE)
+```
+
+The above code identified trunk cells based on whether or not their names(which are found in `colnames(Fincher_muscle)`) contained the string "Cells_Trunk". In order to identify cells using a fragment of their cell name, `complete_names` must be equal to FALSE. If you want to identify cells using their full name(s) only, you can set `complete_names` equal to true and enter one or more complete cell names in the form of a vector.
+
+After selecting the desired trunk cells, it would be a good idea to elminate any possible duplicate cells(columns) or genes(rows) from your data frame:
+
+```r
+# assign trunk_cells to the data frame created when duplicate cells(columns) are deleted from trunk_cells
+trunk_cells <- delete_duplicate_col(trunk_cells)
+# assign trunk_cells to the data frame created when duplicate genes(rows) are deleted from trunk_cells
+trunk_cells <- delete_duplicate_rows(trunk_cells)
+```
+
+Labeling Cell Groups
+--------------------
+
+Now that all preferred cells are chosen and you are sure that there are no duplicate cells or genes present in the data frame, the next step is to create group labels that the SCDE test will compare. The `simpleSCDE` package includes five methods for cell group labeling:
+
+* `pos_neg.label` (positive and negative cell group based on the expression of a single gene)
+* `pospos_neg.label` (positive and negative cell group based on the expression of two specific genes)
+* `pos_pos.label` (two cell groups that are each positive for the expression of different single genes)
+* `pospos_pospos.label` (two cell groups that are each positive for the expression of different sets of two genes)
+* `label_by_colnumbs` (define two cell groups based on column numbers)
+
+For the purpose of this vignette, we are going to use `pos_neg.label` to label our trunk cells positive or negative for the expression of slit(dd_Smed_v4_1211_0_1):
+
+```r
+# assign vector containing positive and negative labels to slit_labels
+slit_labels <- pos_neg.label(df = trunk_cells, rowname = "dd_Smed_v4_12111_0_1", x = 5, x.limit = 0, posname = "slit_positive", negname = "slit_negative")
+```
+
+A sample of code below shows you what your labels should look like if they were properly generated:
+
+```r
+# if this is being entered into a script rather than the command line, you must enclose this first line of code in print()
+head(slit_labels)
+```
+```r
+
+```
+
+Running SCDE Test
+-----------------
+
+Now that your data frame and labels have been prepared, you are ready to run the SCDE test. The `run_SCDE` function includes the following parameters:
+
+* `df` (data frame)
+* `labels` (cell group labels)
+* `write_to_txt` (boolean determining if results should be written to an external text file)
+* `file_name` (name of file to write results to if `write_to_txt = TRUE`)
+* `ncores` (number of cores to use during test)
+* `min_cells_gene_in` (minimum number of genes detected in a cell)
+* `min_cells_gene_in` (minimum number of cells a gene must be seen in)
+* `min_reads_per_gene` (minimum number of reads per gene)
+
+When using `run_SCDE`, errors may arise involving the final three parameters mentioned above. These parameters control what cells and genes are filtered out of your data, and it is eay to set these values too high, eliminating all of cells or genes. 
+
+
+
+
