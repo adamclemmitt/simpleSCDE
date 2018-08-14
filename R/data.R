@@ -1,19 +1,3 @@
-#' Expresssion of genes in cells of the planarian Schmidtea mediterranea.
-#'
-#' A dataset containing the number of hits of each specified gene in over
-#' 50,000 planarian cells.
-#'
-#' @format A data frame with 26561 rows and 50562 variables:
-#' \describe{
-#'   \item{dd_Smed_v4_1000_0_1}{expression of gene, in hits of gene per cell}
-#'   \item{dd_Smed_v4_100_0_1}{expression of gene, in hits of gene per cell}
-#'   ...
-#' }
-#' @source \url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111764}
-#'
-#' @export
-"Fincher"
-
 #' Expresssion of genes in muscle cells of the planarian Schmidtea mediterranea.
 #'
 #' A dataset containing the number of hits of each specified gene in over 1,000
@@ -26,8 +10,6 @@
 #'   ...
 #' }
 #' @source \url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111764}
-#'
-#' @export
 "Fincher_muscle"
 
 #' Expresssion of genes in anterior muscle cells of the planarian Schmidtea mediterranea.
@@ -42,8 +24,6 @@
 #'   ...
 #' }
 #' @source \url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111764}
-#'
-#' @export
 "Fincher_muscle_anterior"
 
 #' Expresssion of genes in lateral muscle cells of the planarian Schmidtea mediterranea.
@@ -58,8 +38,6 @@
 #'   ...
 #' }
 #' @source \url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111764}
-#'
-#' @export
 "Fincher_muscle_lateral"
 
 #' Expresssion of genes in medial muscle cells of the planarian Schmidtea mediterranea.
@@ -74,8 +52,6 @@
 #'   ...
 #' }
 #' @source \url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111764}
-#'
-#' @export
 "Fincher_muscle_medial"
 
 #' Expresssion of genes in posterior muscle cells of the planarian Schmidtea mediterranea.
@@ -90,8 +66,6 @@
 #'   ...
 #' }
 #' @source \url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111764}
-#'
-#' @export
 "Fincher_muscle_posterior"
 
 #' Expresssion of genes in neoblast cells of the planarian Schmidtea mediterranea.
@@ -106,8 +80,6 @@
 #'   ...
 #' }
 #' @source \url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111764}
-#'
-#' @export
 "Fincher_neoblasts"
 
 #' Expresssion of genes in muscle cells of the planarian Schmidtea mediterranea.
@@ -122,6 +94,4 @@
 #'   ...
 #' }
 #' @source \url{https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE74360}
-#'
-#' @export
 "Scimone"
