@@ -14,21 +14,29 @@ colselect(df, colchars = c(), colnumbs = c(), complete_names = TRUE,
 
 \item{colnumbs}{A numeric vector of column numbers (default: c())}
 
-\item{complete_names}{Boolean determining if the entered strings are exact column names (rather than fragments of column names) (default: TRUE)}
+\item{complete_names}{Boolean determining if the entered strings are exact
+column names (rather than fragments of column names) (default: TRUE)}
 
-\item{df_order}{Boolean that determines if the columns selected are returned in the order they appear in \code{df} (rather than the order they appear in \code{colchars}) (default: TRUE)}
+\item{df_order}{Boolean that determines if the columns selected are returned
+in the order they appear in \code{df} (rather than the order they appear in
+\code{colchars}) (default: TRUE)}
 
-\item{print.colnames}{Boolean determining if selected column names should be printed upon completion (default: FALSE)}
+\item{print.colnames}{Boolean determining if selected column names should be
+printed upon completion (default: FALSE)}
 
-\item{print.colnumbs}{Boolean determining if selected column numbers should be printed upon completion (default: FALSE)}
+\item{print.colnumbs}{Boolean determining if selected column numbers should
+be printed upon completion (default: FALSE)}
 }
 \value{
-A data frame consisting of the columns from \code{df} whose names match the character vector \code{colchars} in the order that the appear in the column names of \code{df}
+A data frame consisting of the columns from \code{df} whose names
+  match the character vector \code{colchars} in the order that the appear in
+  the column names of \code{df}
 }
 \description{
 Select columns from a data frame using a character vector or numeric vector
 }
 \examples{
-colselect(df = Fincher, colchars = c("dd_Smed_v4_12", "dd_Smed_v4_22"), complete_names = FALSE, df_order = FALSE, print.colnumbs = TRUE)
+colselect(df = Fincher, colchars = c("dd_Smed_v4_12", "dd_Smed_v4_22"),
+          complete_names = FALSE, df_order = FALSE, print.colnumbs = TRUE)
 
 }

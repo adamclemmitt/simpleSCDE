@@ -2,7 +2,7 @@
 % Please edit documentation in R/group_labels.R
 \name{pospos_neg.label}
 \alias{pospos_neg.label}
-\title{Label a group of cells positive or negative for a group of two genes based on a user-defined number of hits for each gene}
+\title{Label a group of cells positive or negative for a group of two genes}
 \usage{
 pospos_neg.label(df, rowname.x1, rowname.x2, x1 = 100, x2 = 100,
   x1.limit = 0, x2.limit = 0, posname = "pos", negname = "neg")
@@ -10,29 +10,42 @@ pospos_neg.label(df, rowname.x1, rowname.x2, x1 = 100, x2 = 100,
 \arguments{
 \item{df}{A data frame}
 
-\item{rowname.x1}{The name of a gene(row) to be measured for hits in provided cells}
+\item{rowname.x1}{The name of a gene(row) to be measured for hits in
+provided cells}
 
-\item{rowname.x2}{The name of a gene(row) to be measured for hits in provided cells}
+\item{rowname.x2}{The name of a gene(row) to be measured for hits in
+provided cells}
 
-\item{x1}{The minimum number of hits required to label a cell positive for the expression of a particular gene (default: 100)}
+\item{x1}{The minimum number of hits required to label a cell positive for
+the expression of a particular gene (default: 100)}
 
-\item{x2}{The minimum number of hits required to label a cell positive for the expression of a particular gene (default: 100)}
+\item{x2}{The minimum number of hits required to label a cell positive for
+the expression of a particular gene (default: 100)}
 
-\item{x1.limit}{The maximum number of hits of the gene defined by \code{rowname.x1} that is allowed to be present in a negative cell (default: 0)}
+\item{x1.limit}{The maximum number of hits of the gene defined by
+\code{rowname.x1} that is allowed to be present in a negative
+cell (default: 0)}
 
-\item{x2.limit}{The maximum number of hits of the gene defined by \code{rowname.x2} that is allowed to be present in a negative cell (default: 0)}
+\item{x2.limit}{The maximum number of hits of the gene defined by
+\code{rowname.x2} that is allowed to be present in a negative
+cell (default: 0)}
 
-\item{posname}{The string to label cells that are determined to be positive (default: "pos")}
+\item{posname}{The string to label cells that are determined to be
+positive (default: "pos")}
 
-\item{negname}{The string to label cells that are determined to be negative (default: "neg")}
+\item{negname}{The string to label cells that are determined to be
+negative (default: "neg")}
 }
 \value{
-A named character vector that contains \code{posname} and \code{negname}, and alls cells that do not qualify as either are omitted
+A named character vector that contains \code{posname} and
+  \code{negname}, and alls cells that do not qualify as either are omitted
 }
 \description{
-Label a group of cells positive or negative for a group of two genes based on a user-defined number of hits for each gene
+Label a group of cells positive or negative for a group of two genes
 }
 \examples{
-pos_neg.label(df = Fincher, rowname = "dd_Smed_v4_12111_0_1", x1 = 110, x2 = 90, x1.limit = 10, x2.limit = 10, posname = "slit_pos", negname = "slit_neg")
+pos_neg.label(df = Fincher, rowname = "dd_Smed_v4_12111_0_1", x1 = 110,
+              x2 = 90, x1.limit = 10, x2.limit = 10, posname = "slit_pos",
+              negname = "slit_neg")
 
 }

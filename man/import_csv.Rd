@@ -9,14 +9,17 @@ import_csv(file_path, colnames = FALSE, rownames = FALSE)
 \arguments{
 \item{file_path}{File path to csv file}
 
-\item{colnames}{Boolean indicating whether first row should be treated as column names (default: FALSE)}
+\item{colnames}{Boolean indicating whether first row should be treated as
+column names (default: FALSE)}
 
-\item{rownames}{Boolean indicating whther first column should be treated as row names  (default: FALSE)}
+\item{rownames}{Boolean indicating whther first column should be treated as
+row names  (default: FALSE)}
 }
 \description{
 Import data from a csv file
 }
 \examples{
-lat_muscle <- import_csv(file_path = "C:/Users/adamc/Desktop/planaria.xlsx", colnames = TRUE)
+lat_muscle <- import_csv(file_path = "C:/Users/adamc/Desktop/planaria.xlsx",
+                        colnames = TRUE)
 
 }
