@@ -269,10 +269,10 @@ pospos_pospos.label <- function(df, rowname.x1, rowname.x2, rowname.y1, rowname.
 #' @param y.name String label for second cell group (default: "group_y")
 #' @return A named character vector that contains \code{x.name} and \code{y.name}, and all cells that do not qualify as positive or negative are omitted
 #' @examples
-#' label_by_colnames(df = Fincher, x.start = 1, x.stop = 11, y.start = 12, y.stop = length(colnames(planaria_cells))
+#' label_by_colnumbs(df = Fincher, x.start = 1, x.stop = 11, y.start = 12, y.stop = length(colnames(planaria_cells))
 #'
 #' @export
-label_by_colnames <- function(df, x.start, x.stop, y.start, y.stop, x.name = "group_x", y.name = "group_y") {
+label_by_colnumbs <- function(df, x.start, x.stop, y.start, y.stop, x.name = "group_x", y.name = "group_y") {
   if (x.start < 1 || x.stop < 1 || y.start < 1 || y.stop < 1) {
     stop("x.start, x.stop, y.start, and y.stop must be equal to or greater than 1.")
   } else if (x.start > length(colnames(df)) || x.stop > length(colnames(df)) || y.start > length(colnames(df)) || y.stop > length(colnames(df))) {
