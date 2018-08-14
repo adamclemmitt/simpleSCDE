@@ -5,11 +5,13 @@ Version: 0.0.0.9000
 Authors@R: person("Adam", "Clemmitt", email = "adam.clemmitt@gmail.com",
                   role = c("aut", "cre"))
 Maintainer: Adam Clemmitt <adam.clemmitt@gmail.com>
-Description: A simplified method of cell data wrangling and single-cell differential expression 
-    analysis in R. Package is intended for use by those studying or researching the biological sciences
-    with limited computer science experience. Included is the ability import, export, and manipulate large data frames,
-    as well as label cell groupings positive or negative for customizable gene populations. Generated label 
-    vectors are utilized during single-cell differential expression testing as groups between which 
+Description: A simplified method of cell data wrangling and single-cell 
+    differential expression analysis in R. Package is intended for use by those 
+    studying or researching the biological sciences with limited computer 
+    science experience. Included is the ability import, export, and manipulate 
+    large data frames, as well as label cell groupings positive or negative for 
+    customizable gene populations. Generated label vectors are utilized during 
+    single-cell differential expression testing as groups between which 
     differential expression can be assessed.
 Encoding: UTF-8
 LazyData: true
