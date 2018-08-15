@@ -30,11 +30,9 @@ Importing Data
 
 Mining data can be particularly difficult due to the variety of data types and sizes available for potential use. In order to accomodate as many scenarios as possible, 'simpleSCDE' includes methods for reading CSV, text, and excel files. Below are examples of how to use all three functions:
 
-```r
-# import_csv()
-# import_txt()
-# import_excel()
-```
+* `import_csv()`
+* `import_txt()`
+* `import_excel(file_path = "C:/Users/adamc/Desktop/Fincher_muscle.xlsx", sheet_number = 2, sheet_name = "LatMuscle", row_start = 1, row_stop = 3250, col_start = 5, col_stop = 55, rownames = TRUE, colnames = TRUE)`
 
 For the purposes of this vignette, we are going to use data that has been attached to thr 'simpleSCDE' package itself. While there are a few different example datasets included in the 'simpleSCDE' package, we are going to use a list of muscle cells in planaria originally created by [*Fincher et al.*](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111764):
 
