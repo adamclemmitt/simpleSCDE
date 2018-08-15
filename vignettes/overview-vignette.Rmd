@@ -119,9 +119,17 @@ The code above will save test results to `slit_results` and also create a text f
 Exporting Data
 --------------
 
+Once the SCDE test is complete, you may want to export your results or any other relevant data to other file types on your computer. The `simpleSCDE` package includes export options for CSV, text, and excel file types. Examples of how to use each of these functions are included below:
+
+```r
+# export_csv()
+# export_txt()
+# export_excel()
+```
 
 Issues or Questions?
 --------------------
 
+Any issues or questions regarding the process detailed above or the `simpleSCDE` package in general should be reported to https://github.com/adamnc2/simpleSCDE/issues. 
 
 
