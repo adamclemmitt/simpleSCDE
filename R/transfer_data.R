@@ -33,18 +33,67 @@ import_csv <- function(file_path, colnames = FALSE, rownames =FALSE) {
     output <- output[,c(-1)]
   }
   return(output)
-
 }
 
+#' Import data from an excel file
+#'
+#'@param file_path Name of excel file
+#'@param sheet_number Index of sheet in provided excel file
+#'@param sheet_name Name of the excel sheet to be imported (default: "Sheet1")
+#'@param row_start Number of first row to import
+#'@param row_stop Number of last row to iomport
+#'@param col_start Number of first column to import
+#'@param col_stop Number of last column to import
+#'@param rownames Boolean indicating whther first column should become row
+#'  names (default: FALSE)
+#'@param colnames Boolean indicating whether first row should become column
+#'  names (default: FALSE)
+#'
+#'@examples
+#'import_excel(file_path = "C:/Users/adamc/Desktop/Fincher_muscle.xlsx",
+#'             sheet_number = 2, sheet_name = "LatMuscle", row_start = 1,
+#'             row_stop = 3250, col_start = 5, col_stop = 55, rownames = TRUE,
+#'             colnames = TRUE)
+#'
+#'@export
+import_excel <- function(file_path, sheet_number, sheet_name = "Sheet1",
+                         row_start, row_stop, col_start, col_stop,
+                         rownames = FALSE, colnames = FALSE) {
+  if (is.null(file_path)) {
+    stop("Set paramter file_path to a valid excel file path.")
+  } else if (is.null(sheet_number) || sheet_number == 0) {
+    stop("Set parameter sheet_number to an existing sheet number for the
+         provided excel file.")
+  } else if (row_start == 0 || row_stop == 0 || col_start == 0
+             || col_stop == 0) {
+    stop("Parameters row_start, row_stop, col_start, and col_stop cannot be
+         equal to zero.")
+  } else if (row_stop < row_start) {
+    stop("Value of parameter row_stop cannot be less than value of parameter
+         row_start.")
+  } else if (col_stop < col_start) {
+    stop("Value of parameter col_start cannot be less than value of parameter
+         col_start.")
+  }
+  output <- read.xlsx(file = file_path, sheetIndex = sheet_number,
+                      sheetName = sheet_name, rowIndex = c(row_start:row_stop),
+                      colIndex = c(col_start:col_stop, header = colnames))
+  if (rownames) {
+    rownames(output) <- output[,1]
+    output[,1] <- NULL
+  }
+  message("Data was successfully imported from selected excel sheet.")
+  return(output)
+}
 
 #' Export data to excel file
 #'
 #'@param data Content to export to excel file
 #'@param file_path Name of excel file that is the destination for \code{data}
 #'@param colnames Boolean indicating whether column names should be
-#'  written (default: TRUE)
+#'  written as first row (default: TRUE)
 #'@param rownames Boolean indicating whther row names should be
-#'  written (default: TRUE)
+#'  written as first column (default: TRUE)
 #'@param name_sheet String indicating what is to be the name of the sheet
 #'  containing the newly imported data (default: "Sheet1")
 #'@param add_to_file Boolean indicating whether data should be added as a
