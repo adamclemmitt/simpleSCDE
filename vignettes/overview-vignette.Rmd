@@ -12,7 +12,7 @@ vignette: >
 Simplified Single Cell Differential Expression Analysis
 =======================================================
 
-This vignette will show you how to import, prepare, and export data for SCDE analysis with the `simpleSCDE` package.
+This vignette will show you how to import, prepare, and export data related to SCDE analysis with the `simpleSCDE` package.
 
 Loading the Package
 ---------------------
@@ -23,16 +23,21 @@ In order to begin working with the `simpleSCDE` package, the package must be upl
 # load devtools and use it to pull simpleSCDE from github
 library(devtools)
 devtools::install_github("adamnc2/simpleSCDE", bulid_vignettes = FALSE)
+library("", lib.loc="~/R/win-library/3.5")
 ```
 
 Importing Data
 --------------
 
-Mining data can be particularly difficult due to the variety of data types and sizes available for potential use. In order to accomodate as many scenarios as possible, 'simpleSCDE' includes methods for reading CSV, text, and excel files. Below are examples of how to use all three functions:
+Mining data for SCDE analysis can be particularly difficult due to the variety of data types and sizes available for potential use. In order to accomodate as many scenarios as possible, 'simpleSCDE' includes methods for reading CSV, text, and excel files. Below are examples of how to use all three functions:
 
-* `import_csv()`
-* `import_txt()`
-* `import_excel(file_path = "C:/Users/adamc/Desktop/Fincher_muscle.xlsx", sheet_number = 2, sheet_name = "LatMuscle", row_start = 1, row_stop = 3250, col_start = 5, col_stop = 55, rownames = TRUE, colnames = TRUE)`
+* `muscle_csv <- import_csv(file_path = "C:/Users/exampleUser/Desktop/Fincher_muscle.xlsx", colnames = TRUE, rownames = TRUE)`
+* `muscle_txt <- import_txt(file_path = "C:/Users/exampleUser/Desktop/Fincher_muscle.xlsx", colnames = TRUE, rownames = TRUE)`
+* `muscle_excel <- import_excel(file_path = "C:/Users/exampleUser/Desktop/Fincher_muscle.xlsx", sheet_number = 2, sheet_name = "LatMuscle", row_start = 1, row_stop = 3250, col_start = 5, col_stop = 55, colnames = FALSE, rownames = FALSE)`
+
+In the above examples, the imported data is being assigned to the values `import_csv`, `import_txt`, and `import_excel`. The provided import functions can be used without assigning their value to a user-defined variable, though the results of the import function will not be stored anywhere.
+
+To see the details of a function in R, a `?` can be written prior to a function name to see a description of its purpose, a list of its parameters, and often some examples of it being used. (ex: `?import_excel`)
 
 For the purposes of this vignette, we are going to use data that has been attached to thr 'simpleSCDE' package itself. While there are a few different example datasets included in the 'simpleSCDE' package, we are going to use a list of muscle cells in planaria originally created by [*Fincher et al.*](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111764):
 
@@ -79,15 +84,7 @@ For the purpose of this vignette, we are going to use `pos_neg.label` to label o
 slit_labels <- pos_neg.label(df = trunk_cells, rowname = "dd_Smed_v4_12111_0_1", x = 5, x.limit = 0, posname = "slit_positive", negname = "slit_negative")
 ```
 
-A sample of code below shows you what your labels should look like if they were properly generated:
-
-```r
-# if this is being entered into a script rather than the command line, you must enclose this first line of code in print()
-head(slit_labels)
-```
-```r
-
-```
+If you would like to see descriptions or parameters of any of the functions above, remember that `?` can be used in the console in front of a functions name to see these details and more about that specific function..
 
 Running SCDE Test
 -----------------
@@ -120,9 +117,9 @@ Exporting Data
 Once the SCDE test is complete, you may want to export your results or any other relevant data to other file types on your computer. The `simpleSCDE` package includes export options for CSV, text, and excel file types. Examples of how to use each of these functions are included below:
 
 ```r
-# export_csv()
-# export_txt()
-# export_excel()
+# export_csv(data = Fincher_muscle, file_path = "C:/Users/exampleUser/Desktop/resultsSCDE.csv", colnames = FALSE, rownames = FALSE)
+# export_txt(data = Fincher_muscle, file_path = "C:/Users/exampleUser/Desktop/resultsSCDE.txt", colnames = TRUE, rownames = FALSE)
+# export_excel(data = fincher_muscle, file_path = "C:/Users/exampleUser/Desktop/resultsSCDE.xlsx", colnames = TRUE, rownames = TRUE, name_sheet = "Fincher_muscle", add_to_file = TRUE)
 ```
 
 Issues or Questions?
