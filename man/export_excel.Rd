@@ -13,10 +13,10 @@ export_excel(data, file_path, colnames = TRUE, rownames = TRUE,
 \item{file_path}{Name of excel file that is the destination for \code{data}}
 
 \item{colnames}{Boolean indicating whether column names should be
-written (default: TRUE)}
+written as first row (default: TRUE)}
 
 \item{rownames}{Boolean indicating whther row names should be
-written (default: TRUE)}
+written as first column (default: TRUE)}
 
 \item{name_sheet}{String indicating what is to be the name of the sheet
 containing the newly imported data (default: "Sheet1")}
@@ -31,7 +31,7 @@ Export data to excel file
 \examples{
 data(Fincher_lateral_muscle)
 export_excel(data = Fincher_lateral_muscle,
-            file_path = "C:/Users/adamc/Desktop/planaria.xlsx",
+            file_path = "C:/Users/exampleUser/Desktop/planaria.xlsx",
             name_sheet = "LatMuscle", add_to_file = TRUE)
 
 }
