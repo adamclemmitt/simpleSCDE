@@ -28,7 +28,7 @@ devtools::install_github("adamnc2/simpleSCDE", bulid_vignettes = FALSE)
 Once the package has been imported from github, the following code should been run to load the package into your R session:
 
 ```r
-library("", lib.loc="~/R/win-library/3.5")
+library("simpleSCDE", lib.loc="~/R/win-library/3.5")
 ```
 
 If you are working in RStudio (which is recommended), the above step can also be achieved by going into the Packages tab and checking the small box that appears next to the `simpleSCDE` package.
