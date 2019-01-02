@@ -8,7 +8,7 @@ Included in this repository is a vignette providing detailed installation instru
 
 ## Included Datasets
 
-The `simpleSCDE` package includes large planarian muscle data from both Fincher et al. and Scimone et al. Instructions for downloading data are included in the provided iinstructional vignette.
+The `simpleSCDE` package includes large planarian muscle data from both Fincher et al. and Scimone et al. Instructions for downloading data are included in the provided instructional vignette.
 
 ## Issues or Questions?
 
