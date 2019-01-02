@@ -6,7 +6,7 @@ This repository contains an R package for data manipulation and the simplified m
 
 Included in this repository is a vignette providing detailed installation instructions for the `simpleSCDE` package. A summary of available methods is also included in the vignette, in addition to example commands that can be run on your own machine.
 
-## Included Data
+## Included Datasets
 
 The `simpleSCDE` package includes large planarian muscle data from both Fincher et al. and Scimone et al. Instructions for downloading data are included in the provided iinstructional vignette.
 
