@@ -8,4 +8,8 @@ Included in this repository is a vignette providing detailed installation instru
 
 ## Included Data
 
-The `simpleSCDE` package includes 
+The `simpleSCDE` package includes large planarian data sets from both Fincher et al and Scimone et al. 
+
+## Issues or Questions?
+
+Any issues or questions regarding the process detailed above or the `simpleSCDE` package in general should be reported to https://github.com/adamnc2/simpleSCDE/issues.
